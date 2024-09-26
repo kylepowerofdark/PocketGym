@@ -28,9 +28,9 @@ KV = '''
                 Line:
                     points: self.x, self.y, self.x+self.width,self.y
 
- Label:
+            Label:
                 text: 'Ιστορικό'
-                color: 0.8,0.3,0.9, 1
+                color: 0.15,0.12,0.54, 1
                 font_size: '34sp'
                 text_size: self.size
                 size_hint: (1, 1)
@@ -75,7 +75,7 @@ KV = '''
                     spacing: 5
                     orientation: 'vertical'
                     
-                     Label:
+                    Label:
                         text: '[b]Ημερομηνία:[/b] 08/06/2022'
                         markup: True
                         color: 0,0,0, 0.6
@@ -92,7 +92,7 @@ KV = '''
                         halign: "right"
                         valign: "middle"
                     Label:
-                        text: '[b]Καύση:[/b] 525 cal'
+                        text: '[b]Καύση:[/b] 526 cal'
                         markup: True
                         color: 0,0,0, 0.6
                         text_size: self.size
@@ -122,7 +122,7 @@ KV = '''
                     user_font_size: '60sp'
                     pos_hint: {'center_x': 0.05, 'center_y': 0.5}
                     
-                     BoxLayout:
+                BoxLayout:
                     spacing: 5
                     orientation: 'vertical'
     
@@ -206,7 +206,7 @@ KV = '''
                 size_hint: 1, 0.2
                 padding: (5,5,5,5)
        
-       canvas:
+                canvas:
                     Color:
                         rgba: 0.95,0.95,0.95, 0.5
                     Rectangle:
@@ -252,7 +252,7 @@ KV = '''
                         font_size: '16sp'
                         halign: "right"
                         valign: "middle"
-BoxLayout:
+            BoxLayout:
                 orientation: 'horizontal'
                 size_hint: 1, 0.2
                 padding: (5,5,5,5)

@@ -166,6 +166,54 @@ KV = '''
                     size_hint: (1, 1)
                     halign: "left"
                     valign: "middle"
+
+            #BoxLayout:
+                #spacing: 10
+
+                #canvas.before:
+                    #Color:
+                        #rgba: 0.85,0.85,0.85, 1
+                    #Line:
+                        #points: self.x, self.y, self.x+self.width,self.y
+
+                #orientation: 'horizontal'
+                #MDIconButton:
+                    #icon: 'plus-thick'
+                    #md_bg_color: (0,0,0,0.1)
+                    #user_font_size: '20sp'
+                    #pos_hint: {'center_x': 0.05, 'center_y': 0.5}
+
+                #Label:
+                    #text: 'extra'
+                    #color: 0,0,0, 0.7
+                    #text_size: self.size
+                    #size_hint: (1, 1)
+                    #halign: "left"
+                    #valign: "middle"
+
+            #BoxLayout:
+                #spacing: 10
+
+                #canvas.before:
+                    #Color:
+                        #rgba: 0.85,0.85,0.85, 1
+                    #Line:
+                        #points: self.x, self.y, self.x+self.width,self.y
+
+                #orientation: 'horizontal'
+                #MDIconButton:
+                    #icon: 'plus-thick'
+                    #md_bg_color: (0,0,0,0.1)
+                    #user_font_size: '20sp'
+                    #pos_hint: {'center_x': 0.05, 'center_y': 0.5}
+
+                #Label:
+                    #text: 'extra2'
+                    #color: 0,0,0, 0.7
+                    #text_size: self.size
+                    #size_hint: (1, 1)
+                    #halign: "left"
+                    #valign: "middle"
        
         PGScreenSelector:
 '''
@@ -180,19 +228,28 @@ class Entry(Screen):
     def __init__(self, app=None, **kwargs):
         super().__init__(**kwargs)
         self.app = app
-
-    def on_profile(self):
+    
+# Method that will be used when pressing Profile button   
+   def on_profile(self):
         print('You hit profile')
 
+
+# Method that will be used when pressing New Activity button   
     def on_new_activity(self):
         print('You hit new activity')
 
+
+# Method that will be used when pressing History button   
     def on_history(self):
         print('You hit history')
         self.app.manager.current = 'history'
     
+    
+# Method that will be used when pressing Premium button   
     def on_premium(self):
         print('You hit premium')
 
+
+# Method that will be used when pressing  Settings button   
     def on_settings(self):
         print('You hit settings')

@@ -9,9 +9,13 @@ from kivy.clock import Clock
 Clock.max_iteration = 20
 
 import entry
+import create_prof
+import welcome
 import history
 
-# This module creates our main App, using python library kivy 
+# This module creates our main App, using python library kivy, as well as kivyMD 
+
+# For developing convenience we use a Screen Selector
 
 __version__ = 'v0.2'
 
@@ -32,10 +36,10 @@ SCR_SELECTOR='''
         #theme_text_color: 'Custom'
         text_color: 1,1,0, 1
         on_ref_press: app.manager.current = 'entry'
-    Label:
-        text: 'Scr2'
+    #Label:
+        #text: 'Scr2'
         #theme_text_color: 'Custom'
-        text_color: 1,1,0, 1
+        #text_color: 1,1,0, 1
         #on_release: app.manager.current = 'entry'
     Label:
         text: "[ref=history]History[/ref]"
@@ -43,21 +47,67 @@ SCR_SELECTOR='''
         #theme_text_color: 'Custom'
         text_color: 1,1,0, 1
         on_ref_press: app.manager.current = 'history'
+    #Label:
+        #text: 'Scr4'
+        #theme_text_color: 'Custom'
+        #text_color: 1,1,0, 1
+        #on_release: app.manager.current = 'create_prof'
     Label:
-        text: 'Scr4'
+        text: "[ref=history]History[/ref]"
+        markup: True
         #theme_text_color: 'Custom'
         text_color: 1,1,0, 1
-        #on_release: app.manager.current = 'entry'
+        on_ref_press: app.manager.current = 'welcome'
     Label:
-        text: 'Scr5'
+        text: "[ref=create_prof]Create_prof[/ref]"
+        markup: True
         #theme_text_color: 'Custom'
         text_color: 1,1,0, 1
-        #on_release: app.manager.current = 'entry'
+        on_ref_press: app.manager.current = 'create_prof'
+    #Label:    
+        #text: "[ref=history]History[/ref]"
+        #markup: True
+        #theme_text_color: 'Custom'
+        #text_color: 1,1,0, 1
+        #on_ref_press: app.manager.current = 'welcome'
+    #Label:    
+        #text: "[ref=history]History[/ref]"
+        #markup: True
+        #theme_text_color: 'Custom'
+        #text_color: 1,1,0, 1
+        #on_ref_press: app.manager.current = 'welcome'
+    #Label:    
+        #text: "[ref=history]History[/ref]"
+        #markup: True
+        #theme_text_color: 'Custom'
+        #text_color: 1,1,0, 1
+        #on_ref_press: app.manager.current = 'welcome'
+    #Label:    
+        #text: "[ref=history]History[/ref]"
+        #markup: True
+        #theme_text_color: 'Custom'
+        #text_color: 1,1,0, 1
+        #on_ref_press: app.manager.current = 'welcome'
+    #Label:    
+        #text: "[ref=history]History[/ref]"
+        #markup: True
+        #theme_text_color: 'Custom'
+        #text_color: 1,1,0, 1
+        #on_ref_press: app.manager.current = 'welcome'
+    #Label:
+        #text: "[ref=history]History[/ref]"
+        #markup: True
+        #theme_text_color: 'Custom'
+        #text_color: 1,1,0, 1
+        #on_ref_press: app.manager.current = 'welcome'
+        
+        
+        
+        
 '''
 
 Builder.load_string(SCR_SELECTOR)
 
-# For developing convenience we use a Screen Selector
 
 class PGScreenSelector(GridLayout):
     pass
@@ -76,6 +126,8 @@ class PGAppKV(MDApp):
         self.title = None
         self.manager = None
         self.entry_scr = None
+        self.create_prof_scr = None
+        self.welcome_scr = None
         self.history_scr = None
 
     def build(self):
@@ -86,6 +138,10 @@ class PGAppKV(MDApp):
         self.manager.add_widget(self.entry)
         self.history = history.History(app=self, name='history')
         self.manager.add_widget(self.history)
+        self.welcome = welcome.Welcome(app=self, name='welcome')
+        self.manager.add_widget(self.welcome)
+        self.create_prof = create_prof.Create_prof(app=self, name='create_prof')
+        self.manager.add_widget(self.create_prof)
 
         return self.manager
 
